@@ -70,9 +70,9 @@ def load_model():
         logger.info(f"Feature extractor do_resize: {feature_extractor.do_resize}")
         logger.info(f"Feature extractor do_normalize: {feature_extractor.do_normalize}")
 
-        encoder_session = ort.InferenceSession(f"{valid_path}/encoder_model.onnx")
+        encoder_session = ort.InferenceSession(f"{valid_path}/encoder_model.onnx", providers=['AzureExecutionProvider', 'CPUExecutionProvider'])
         decoder_session = ort.InferenceSession(
-            f"{valid_path}/decoder_model_merged.onnx"
+            f"{valid_path}/decoder_model_merged.onnx", providers=['AzureExecutionProvider', 'CPUExecutionProvider']
         )
 
         model = (tokenizer, feature_extractor, encoder_session, decoder_session)
