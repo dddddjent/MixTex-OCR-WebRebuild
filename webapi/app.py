@@ -15,7 +15,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # 模型路径配置
-MODEL_PATHS = [os.path.abspath("../model")]
+MODEL_PATHS = ["./model", os.path.abspath("../model")]
 
 # 全局变量
 model = None
